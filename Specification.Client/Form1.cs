@@ -19,16 +19,8 @@ namespace Specification.Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OpenFileDialog afd = new OpenFileDialog();
 
-            if(afd.ShowDialog() == DialogResult.OK)
-            {
-                if(!String.IsNullOrWhiteSpace(afd.FileName))
-                {
-                    String temp = afd.FileName;
-                    String temp1 = afd.FileName;
-                }
-            }
+            
         }
     }
 }
