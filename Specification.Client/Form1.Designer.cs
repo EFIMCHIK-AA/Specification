@@ -58,7 +58,7 @@
             this.ID,
             this.Imya});
             this.dataGridView1.Location = new System.Drawing.Point(36, 38);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -97,7 +97,7 @@
             // Add_B
             // 
             this.Add_B.Location = new System.Drawing.Point(36, 417);
-            this.Add_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Add_B.Margin = new System.Windows.Forms.Padding(4);
             this.Add_B.Name = "Add_B";
             this.Add_B.Size = new System.Drawing.Size(183, 55);
             this.Add_B.TabIndex = 2;
@@ -107,7 +107,7 @@
             // Update_B
             // 
             this.Update_B.Location = new System.Drawing.Point(275, 417);
-            this.Update_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Update_B.Margin = new System.Windows.Forms.Padding(4);
             this.Update_B.Name = "Update_B";
             this.Update_B.Size = new System.Drawing.Size(183, 55);
             this.Update_B.TabIndex = 3;
@@ -117,7 +117,7 @@
             // Delete_B
             // 
             this.Delete_B.Location = new System.Drawing.Point(511, 417);
-            this.Delete_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Delete_B.Margin = new System.Windows.Forms.Padding(4);
             this.Delete_B.Name = "Delete_B";
             this.Delete_B.Size = new System.Drawing.Size(183, 55);
             this.Delete_B.TabIndex = 4;
@@ -127,7 +127,7 @@
             // Data_TB
             // 
             this.Data_TB.Location = new System.Drawing.Point(821, 118);
-            this.Data_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Data_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Data_TB.Name = "Data_TB";
             this.Data_TB.Size = new System.Drawing.Size(205, 22);
             this.Data_TB.TabIndex = 5;
@@ -135,7 +135,7 @@
             // Description_TB
             // 
             this.Description_TB.Location = new System.Drawing.Point(821, 162);
-            this.Description_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Description_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Description_TB.Name = "Description_TB";
             this.Description_TB.Size = new System.Drawing.Size(205, 22);
             this.Description_TB.TabIndex = 6;
@@ -143,7 +143,7 @@
             // ID_TB
             // 
             this.ID_TB.Location = new System.Drawing.Point(821, 207);
-            this.ID_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ID_TB.Margin = new System.Windows.Forms.Padding(4);
             this.ID_TB.Name = "ID_TB";
             this.ID_TB.Size = new System.Drawing.Size(205, 22);
             this.ID_TB.TabIndex = 7;
@@ -151,7 +151,7 @@
             // Name_TB
             // 
             this.Name_TB.Location = new System.Drawing.Point(821, 251);
-            this.Name_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Name_TB.Name = "Name_TB";
             this.Name_TB.Size = new System.Drawing.Size(205, 22);
             this.Name_TB.TabIndex = 8;
@@ -214,7 +214,7 @@
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
