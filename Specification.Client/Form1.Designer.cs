@@ -32,10 +32,10 @@
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Date_TB = new System.Windows.Forms.TextBox();
+            this.Desc_TB = new System.Windows.Forms.TextBox();
+            this.ID_TB = new System.Windows.Forms.TextBox();
+            this.Name_TB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             this.Add_B.TabIndex = 2;
             this.Add_B.Text = "Add";
             this.Add_B.UseVisualStyleBackColor = true;
+            this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
             // 
             // Update_B
             // 
@@ -91,33 +92,33 @@
             this.Delete_B.Text = "Delete";
             this.Delete_B.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // Date_TB
             // 
-            this.textBox1.Location = new System.Drawing.Point(616, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 5;
+            this.Date_TB.Location = new System.Drawing.Point(616, 96);
+            this.Date_TB.Name = "Date_TB";
+            this.Date_TB.Size = new System.Drawing.Size(155, 20);
+            this.Date_TB.TabIndex = 5;
             // 
-            // textBox2
+            // Desc_TB
             // 
-            this.textBox2.Location = new System.Drawing.Point(616, 132);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
-            this.textBox2.TabIndex = 6;
+            this.Desc_TB.Location = new System.Drawing.Point(616, 132);
+            this.Desc_TB.Name = "Desc_TB";
+            this.Desc_TB.Size = new System.Drawing.Size(155, 20);
+            this.Desc_TB.TabIndex = 6;
             // 
-            // textBox3
+            // ID_TB
             // 
-            this.textBox3.Location = new System.Drawing.Point(616, 168);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 20);
-            this.textBox3.TabIndex = 7;
+            this.ID_TB.Location = new System.Drawing.Point(616, 168);
+            this.ID_TB.Name = "ID_TB";
+            this.ID_TB.Size = new System.Drawing.Size(155, 20);
+            this.ID_TB.TabIndex = 7;
             // 
-            // textBox4
+            // Name_TB
             // 
-            this.textBox4.Location = new System.Drawing.Point(616, 204);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 20);
-            this.textBox4.TabIndex = 8;
+            this.Name_TB.Location = new System.Drawing.Point(616, 204);
+            this.Name_TB.Name = "Name_TB";
+            this.Name_TB.Size = new System.Drawing.Size(155, 20);
+            this.Name_TB.TabIndex = 8;
             // 
             // label1
             // 
@@ -188,10 +189,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Name_TB);
+            this.Controls.Add(this.ID_TB);
+            this.Controls.Add(this.Desc_TB);
+            this.Controls.Add(this.Date_TB);
             this.Controls.Add(this.Delete_B);
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
@@ -211,10 +212,10 @@
         private System.Windows.Forms.Button Add_B;
         private System.Windows.Forms.Button Update_B;
         private System.Windows.Forms.Button Delete_B;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Date_TB;
+        private System.Windows.Forms.TextBox Desc_TB;
+        private System.Windows.Forms.TextBox ID_TB;
+        private System.Windows.Forms.TextBox Name_TB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
