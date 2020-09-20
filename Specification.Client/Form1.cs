@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessModel;
 
 namespace Specification.Client
 {
@@ -19,8 +20,8 @@ namespace Specification.Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             
         }
     }
 }
+ 
