@@ -27,13 +27,8 @@ namespace Specification.Client
         }
 
         private void OK_B_Click(object sender, EventArgs e)
-        {
-            Form1 f1 = new Form1();
-            f1.a = Name_TB.Text;
-            f1.b = Description_TB.Text;
-            f1.set_model_DGV();
+        {         
             Close();
-
         }
     }
 }
