@@ -32,6 +32,7 @@
             this.Description_L = new System.Windows.Forms.Label();
             this.Name_TB = new System.Windows.Forms.TextBox();
             this.Description_TB = new System.Windows.Forms.TextBox();
+            this.OK_B = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Name_L
@@ -66,11 +67,22 @@
             this.Description_TB.Size = new System.Drawing.Size(155, 20);
             this.Description_TB.TabIndex = 13;
             // 
+            // OK_B
+            // 
+            this.OK_B.Location = new System.Drawing.Point(149, 153);
+            this.OK_B.Name = "OK_B";
+            this.OK_B.Size = new System.Drawing.Size(75, 23);
+            this.OK_B.TabIndex = 17;
+            this.OK_B.Text = "Применить";
+            this.OK_B.UseVisualStyleBackColor = true;
+            this.OK_B.Click += new System.EventHandler(this.OK_B_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 202);
+            this.Controls.Add(this.OK_B);
             this.Controls.Add(this.Name_L);
             this.Controls.Add(this.Description_L);
             this.Controls.Add(this.Name_TB);
@@ -88,5 +100,6 @@
         private System.Windows.Forms.Label Description_L;
         private System.Windows.Forms.TextBox Name_TB;
         private System.Windows.Forms.TextBox Description_TB;
+        private System.Windows.Forms.Button OK_B;
     }
 }
