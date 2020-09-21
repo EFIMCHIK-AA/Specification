@@ -36,10 +36,6 @@
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
-            this.Description_TB = new System.Windows.Forms.TextBox();
-            this.Name_TB = new System.Windows.Forms.TextBox();
-            this.Description_L = new System.Windows.Forms.Label();
-            this.Name_L = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,12 +49,11 @@
             this.ID,
             this.Imya,
             this.Description});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 38);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(707, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(530, 279);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -92,10 +87,9 @@
             // 
             // Add_B
             // 
-            this.Add_B.Location = new System.Drawing.Point(36, 417);
-            this.Add_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Add_B.Location = new System.Drawing.Point(27, 339);
             this.Add_B.Name = "Add_B";
-            this.Add_B.Size = new System.Drawing.Size(183, 55);
+            this.Add_B.Size = new System.Drawing.Size(137, 45);
             this.Add_B.TabIndex = 2;
             this.Add_B.Text = "Add";
             this.Add_B.UseVisualStyleBackColor = true;
@@ -103,81 +97,38 @@
             // 
             // Update_B
             // 
-            this.Update_B.Location = new System.Drawing.Point(275, 417);
-            this.Update_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Update_B.Location = new System.Drawing.Point(206, 339);
             this.Update_B.Name = "Update_B";
-            this.Update_B.Size = new System.Drawing.Size(183, 55);
+            this.Update_B.Size = new System.Drawing.Size(137, 45);
             this.Update_B.TabIndex = 3;
             this.Update_B.Text = "Update";
             this.Update_B.UseVisualStyleBackColor = true;
+            this.Update_B.Click += new System.EventHandler(this.Update_B_Click);
             // 
             // Delete_B
             // 
-            this.Delete_B.Location = new System.Drawing.Point(511, 417);
-            this.Delete_B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Delete_B.Location = new System.Drawing.Point(383, 339);
             this.Delete_B.Name = "Delete_B";
-            this.Delete_B.Size = new System.Drawing.Size(183, 55);
+            this.Delete_B.Size = new System.Drawing.Size(137, 45);
             this.Delete_B.TabIndex = 4;
             this.Delete_B.Text = "Delete";
             this.Delete_B.UseVisualStyleBackColor = true;
             // 
-            // Description_TB
+            // Form1
             // 
-            this.Description_TB.Location = new System.Drawing.Point(844, 233);
-            this.Description_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Description_TB.Name = "Description_TB";
-            this.Description_TB.Size = new System.Drawing.Size(205, 22);
-            this.Description_TB.TabIndex = 6;
-            // 
-            // Name_TB
-            // 
-            this.Name_TB.Location = new System.Drawing.Point(844, 193);
-            this.Name_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name_TB.Name = "Name_TB";
-            this.Name_TB.Size = new System.Drawing.Size(205, 22);
-            this.Name_TB.TabIndex = 8;
-            // 
-            // Description_L
-            // 
-            this.Description_L.AutoSize = true;
-            this.Description_L.Location = new System.Drawing.Point(753, 236);
-            this.Description_L.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Description_L.Name = "Description_L";
-            this.Description_L.Size = new System.Drawing.Size(79, 17);
-            this.Description_L.TabIndex = 10;
-            this.Description_L.Text = "Description";
-            // 
-            // Name_L
-            // 
-            this.Name_L.AutoSize = true;
-            this.Name_L.Location = new System.Drawing.Point(753, 197);
-            this.Name_L.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Name_L.Name = "Name_L";
-            this.Name_L.Size = new System.Drawing.Size(45, 17);
-            this.Name_L.TabIndex = 12;
-            this.Name_L.Text = "Name";
-            // 
-            // Form
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1089, 494);
-            this.Controls.Add(this.Name_L);
-            this.Controls.Add(this.Description_L);
-            this.Controls.Add(this.Name_TB);
-            this.Controls.Add(this.Description_TB);
+            this.ClientSize = new System.Drawing.Size(561, 401);
             this.Controls.Add(this.Delete_B);
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form";
+            this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -187,10 +138,6 @@
         private System.Windows.Forms.Button Add_B;
         private System.Windows.Forms.Button Update_B;
         private System.Windows.Forms.Button Delete_B;
-        private System.Windows.Forms.TextBox Description_TB;
-        private System.Windows.Forms.TextBox Name_TB;
-        private System.Windows.Forms.Label Description_L;
-        private System.Windows.Forms.Label Name_L;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Imya;

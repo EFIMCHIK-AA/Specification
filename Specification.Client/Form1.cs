@@ -33,5 +33,11 @@ namespace Specification.Client
             Form2 f = new Form2();
             f.ShowDialog();
         }
+
+        private void Update_B_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
     }
 }
