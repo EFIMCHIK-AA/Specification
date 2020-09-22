@@ -26,6 +26,13 @@ namespace Specification.Client
             return Description_TB.Text;
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            Form1 f1 = this.Owner as Form1;
+            Name_TB.Text = f1.c;
+            Description_TB.Text = f1.d;
+        }
+
         private void OK_B_Click(object sender, EventArgs e)
         {         
             Close();
