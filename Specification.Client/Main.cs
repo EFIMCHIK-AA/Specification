@@ -11,13 +11,18 @@ namespace Specification.Client
             InitializeComponent();
         }
        
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public void Set_model_DGV()
         {
             Model model = ModificationModel.model;
             List_DGV.RowCount++;
             List_DGV[0, List_DGV.RowCount - 1].Value = Convert.ToString(model.DateCreate);
             List_DGV[1, List_DGV.RowCount - 1].Value = Convert.ToString(model.Id);
-            List_DGV[2, List_DGV.RowCount - 1].Value = Convert.ToString(model.Name); 
+            List_DGV[2, List_DGV.RowCount - 1].Value = Convert.ToString(model.Name);
             List_DGV[3, List_DGV.RowCount - 1].Value = Convert.ToString(model.Description);
         }
 
@@ -38,16 +43,14 @@ namespace Specification.Client
 
         private void Update_B_Click(object sender, EventArgs e)
         {
-            Get_model_DGV();
-            ModificationModel modificationModel = new ModificationModel(true);
-            
+            //Get_model_DGV();
+            //ModificationModel modificationModel = new ModificationModel(true);
         }
 
-        
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
+        private void Delete_B_Click(object sender, EventArgs e)
+        {          
+            int index = List_DGV.CurrentRow.Index;           
+            List_DGV.Rows.Remove(List_DGV.Rows[index]);
         }
     }
 }

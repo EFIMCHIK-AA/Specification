@@ -22,15 +22,10 @@ namespace Specification.Client
         private bool IsUpdate;
 
         private void ModificationModel_Load(object sender, EventArgs e)
-        {
-            //Main f1 = this.Owner as Main;
-
-            
+        {                     
             if (IsUpdate)
             {
-                this.Text = "Изменение данных";
-                //Name_TB.Text = f1.c;
-                //Description_TB.Text = f1.d;
+                this.Text = "Изменение данных";               
             }
             else
             {
@@ -41,7 +36,7 @@ namespace Specification.Client
         public static Model model = new Model();
         private void ModificationModel_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(DialogResult == DialogResult.OK)
+            if (DialogResult == DialogResult.OK)
             {
                 try
                 {
