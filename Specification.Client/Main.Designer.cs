@@ -1,6 +1,6 @@
 ﻿namespace Specification.Client
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -114,7 +114,7 @@
             this.Delete_B.Text = "Delete";
             this.Delete_B.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,9 +124,9 @@
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "Main";
+            this.Text = "Список моделей";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

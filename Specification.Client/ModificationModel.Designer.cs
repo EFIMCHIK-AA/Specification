@@ -1,6 +1,6 @@
 ﻿namespace Specification.Client
 {
-    partial class Form2
+    partial class ModificationModel
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.Name_TB = new System.Windows.Forms.TextBox();
             this.Description_TB = new System.Windows.Forms.TextBox();
             this.OK_B = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Name_L
@@ -69,26 +70,42 @@
             // 
             // OK_B
             // 
-            this.OK_B.Location = new System.Drawing.Point(149, 153);
+            this.OK_B.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.OK_B.Location = new System.Drawing.Point(51, 151);
             this.OK_B.Name = "OK_B";
             this.OK_B.Size = new System.Drawing.Size(75, 23);
             this.OK_B.TabIndex = 17;
-            this.OK_B.Text = "Применить";
+            this.OK_B.Text = "Сохранить";
             this.OK_B.UseVisualStyleBackColor = true;
-            this.OK_B.Click += new System.EventHandler(this.OK_B_Click);
             // 
-            // Form2
+            // button1
+            // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(196, 151);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Отмена";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ModificationModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 202);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.OK_B);
             this.Controls.Add(this.Name_L);
             this.Controls.Add(this.Description_L);
             this.Controls.Add(this.Name_TB);
             this.Controls.Add(this.Description_TB);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "ModificationModel";
+            this.Text = "Добавлене";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModificationModel_FormClosing);
+            this.Load += new System.EventHandler(this.ModificationModel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,8 +115,9 @@
 
         private System.Windows.Forms.Label Name_L;
         private System.Windows.Forms.Label Description_L;
-        private System.Windows.Forms.TextBox Name_TB;
-        private System.Windows.Forms.TextBox Description_TB;
         private System.Windows.Forms.Button OK_B;
+        public System.Windows.Forms.TextBox Name_TB;
+        public System.Windows.Forms.TextBox Description_TB;
+        private System.Windows.Forms.Button button1;
     }
 }
