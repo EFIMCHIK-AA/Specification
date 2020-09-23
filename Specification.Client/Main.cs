@@ -10,16 +10,18 @@ namespace Specification.Client
         {
             InitializeComponent();
         }
-
-
-        public void set_model_DGV()
-        {           
-            //dataGridView1.RowCount++;
-            //dataGridView1[2, dataGridView1.RowCount - 1].Value = Convert.ToString(a);
-            //dataGridView1[3, dataGridView1.RowCount - 1].Value = Convert.ToString(b);
+       
+        public void Set_model_DGV()
+        {
+            Model model = ModificationModel.model;
+            List_DGV.RowCount++;
+            List_DGV[0, List_DGV.RowCount - 1].Value = Convert.ToString(model.DateCreate);
+            List_DGV[1, List_DGV.RowCount - 1].Value = Convert.ToString(model.Id);
+            List_DGV[2, List_DGV.RowCount - 1].Value = Convert.ToString(model.Name); 
+            List_DGV[3, List_DGV.RowCount - 1].Value = Convert.ToString(model.Description);
         }
 
-        public void get_model_DGV()
+        public void Get_model_DGV()
         {
             //int rowindex = dataGridView1.CurrentCell.RowIndex;
             //dataGridView1.Rows[rowindex].Cells[2].Value = Convert.ToString(c);
@@ -28,30 +30,20 @@ namespace Specification.Client
 
         private void Add_B_Click(object sender, EventArgs e)
         {
-            String error = String.Empty;
-
+            //String error = String.Empty;
             ModificationModel modificationModel = new ModificationModel(false);
-
             modificationModel.ShowDialog();
-            
-            //f2.ShowDialog();
-            //a = f2.get_Name();
-            //b = f2.get_Description();
-            //set_model_DGV();
+            Set_model_DGV();
         }
 
         private void Update_B_Click(object sender, EventArgs e)
         {
-            get_model_DGV();
-            ModificationModel f2 = new ModificationModel(true);
-            f2.ShowDialog();
-            f2.Owner = this;
+            Get_model_DGV();
+            ModificationModel modificationModel = new ModificationModel(true);
+            
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void Main_Load(object sender, EventArgs e)
         {

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.List_DGV = new System.Windows.Forms.DataGridView();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imya = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,26 +36,25 @@
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // List_DGV
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.List_DGV.AllowUserToAddRows = false;
+            this.List_DGV.AllowUserToDeleteRows = false;
+            this.List_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.List_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date,
             this.ID,
             this.Imya,
             this.Description});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 279);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.List_DGV.Location = new System.Drawing.Point(12, 31);
+            this.List_DGV.Name = "List_DGV";
+            this.List_DGV.RowHeadersVisible = false;
+            this.List_DGV.RowHeadersWidth = 51;
+            this.List_DGV.Size = new System.Drawing.Size(530, 279);
+            this.List_DGV.TabIndex = 0;
             // 
             // Date
             // 
@@ -123,18 +122,18 @@
             this.Controls.Add(this.Delete_B);
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.List_DGV);
             this.Name = "Main";
             this.Text = "Список моделей";
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView List_DGV;
         private System.Windows.Forms.Button Add_B;
         private System.Windows.Forms.Button Update_B;
         private System.Windows.Forms.Button Delete_B;

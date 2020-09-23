@@ -37,15 +37,14 @@ namespace Specification.Client
                 this.Text = "Добавление данных";
             }
         }
-
+        
+        public static Model model = new Model();
         private void ModificationModel_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(DialogResult == DialogResult.OK)
             {
                 try
                 {
-                    Model model = new Model();
-
                     model.Id = ++Helper.Id;
                     model.DateCreate = DateTime.Now;
 
@@ -66,12 +65,14 @@ namespace Specification.Client
                     }
 
                     model.Description = Description;
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true;
                 }
+                
             }         
         }
     }
