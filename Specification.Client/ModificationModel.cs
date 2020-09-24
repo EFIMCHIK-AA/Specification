@@ -33,16 +33,12 @@ namespace Specification.Client
             }
         }
         
-        public static Model model = new Model();
         private void ModificationModel_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
                 try
                 {
-                    model.Id = ++Helper.Id;
-                    model.DateCreate = DateTime.Now;
-
                     String Name = Name_TB.Text.Trim();
 
                     if (String.IsNullOrWhiteSpace(Name))
@@ -50,17 +46,12 @@ namespace Specification.Client
                         throw new Exception("Наименование должно содержать значение");
                     }
 
-                    model.Name = Name;
-
                     String Description = Description_TB.Text.Trim();
 
                     if (String.IsNullOrWhiteSpace(Description))
                     {
                         throw new Exception("Описание должно содержать значение");
                     }
-
-                    model.Description = Description;
-                    
                 }
                 catch (Exception ex)
                 {
