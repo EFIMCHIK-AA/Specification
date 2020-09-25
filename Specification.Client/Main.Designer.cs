@@ -30,7 +30,7 @@
         {
             this.List_DGV = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.List_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Name});
+            this.Column1});
             this.List_DGV.Location = new System.Drawing.Point(12, 12);
             this.List_DGV.Name = "List_DGV";
             this.List_DGV.ReadOnly = true;
@@ -71,13 +71,11 @@
             this.ID.ReadOnly = true;
             this.ID.Width = 125;
             // 
-            // Name
+            // Column1
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 130;
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Add_B
             // 
@@ -206,6 +204,7 @@
             this.Controls.Add(this.Update_B);
             this.Controls.Add(this.Add_B);
             this.Controls.Add(this.List_DGV);
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список моделей";
             ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).EndInit();
@@ -230,7 +229,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Exit_B;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

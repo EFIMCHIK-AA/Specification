@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using BusinessModel;
@@ -87,7 +88,7 @@ namespace Specification.Client
             {
                 Model model = GetModel(GetId());
 
-                if(model != null)
+                if (model != null)
                 {
                     Id_TB.Text = model.Id.ToString();
                     Name_TB.Text = model.Name;
@@ -120,7 +121,7 @@ namespace Specification.Client
 
         private void Exit_B_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Вы действительно хотите выйти?","Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 Application.Exit();
             }

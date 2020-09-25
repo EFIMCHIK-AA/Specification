@@ -33,7 +33,7 @@
             this.Name_TB = new System.Windows.Forms.TextBox();
             this.Description_TB = new System.Windows.Forms.TextBox();
             this.OK_B = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Cancel_B = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Name_L
@@ -78,22 +78,24 @@
             this.OK_B.Text = "Сохранить";
             this.OK_B.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // Cancel_B
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(191, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Cancel_B.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel_B.Location = new System.Drawing.Point(191, 97);
+            this.Cancel_B.Name = "Cancel_B";
+            this.Cancel_B.Size = new System.Drawing.Size(160, 23);
+            this.Cancel_B.TabIndex = 4;
+            this.Cancel_B.Text = "Отмена";
+            this.Cancel_B.UseVisualStyleBackColor = true;
             // 
             // ModificationModel
             // 
+            this.AcceptButton = this.OK_B;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Cancel_B;
             this.ClientSize = new System.Drawing.Size(374, 151);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Cancel_B);
             this.Controls.Add(this.OK_B);
             this.Controls.Add(this.Name_L);
             this.Controls.Add(this.Description_L);
@@ -119,6 +121,6 @@
         private System.Windows.Forms.Button OK_B;
         public System.Windows.Forms.TextBox Name_TB;
         public System.Windows.Forms.TextBox Description_TB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Cancel_B;
     }
 }

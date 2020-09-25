@@ -57,8 +57,7 @@ namespace Specification.Client
                 {
                     MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true;
-                }
-                
+                }       
             }         
         }
     }
