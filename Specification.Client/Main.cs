@@ -123,8 +123,35 @@ namespace Specification.Client
         {
             if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
+                using (StreamWriter sw = new StreamWriter(File.Open("data.dat", FileMode.Create)))
+                {
+                    for (int i = 0; i < Models.Count; i++)
+                    {
+                        sw.WriteLine(Models[i].Id);
+                        sw.WriteLine(Models[i].Name);
+                        sw.WriteLine(Models[i].Description);
+                        sw.WriteLine(Models[i].DateCreate);
+                    }
+                }
+
                 Application.Exit();
             }
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            Model model = new Model();
+
+            using (StreamReader sr = new StreamReader(File.Open("data.dat", FileMode.Open)))
+            {
+                for (int i = 0; i < Models.Count; i++)
+                {
+                    sr.ReadLine(Convert.ToInt32(Models[i].Id.Value));
+                    sr.ReadLine(Convert.ToString(Models[i].Name.Value));
+                    sr.ReadLine(Convert.ToString(Models[i].Description.Value));
+                    sr.ReadLine(Convert.ToDateTime(Models[i].DateCreate.Value));
+                }
+            } 
+        }        
     }
 }

@@ -59,7 +59,7 @@
             this.List_DGV.ReadOnly = true;
             this.List_DGV.RowHeadersVisible = false;
             this.List_DGV.RowHeadersWidth = 51;
-            this.List_DGV.Size = new System.Drawing.Size(259, 279);
+            this.List_DGV.Size = new System.Drawing.Size(229, 279);
             this.List_DGV.TabIndex = 0;
             this.List_DGV.SelectionChanged += new System.EventHandler(this.List_DGV_SelectionChanged);
             // 
@@ -190,7 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(567, 305);
+            this.ClientSize = new System.Drawing.Size(564, 297);
             this.Controls.Add(this.Exit_B);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -207,6 +207,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список моделей";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
