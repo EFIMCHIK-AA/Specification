@@ -155,11 +155,14 @@ namespace Specification.Client
                         model.Name = sr.ReadLine();
                         model.Description = sr.ReadLine();
                         model.DateCreate = Convert.ToDateTime(sr.ReadLine());
-
-                        List_DGV[0, i].Value = model.Id;
-                        List_DGV[1, i].Value = model.Name;
                     }
-                }                
+                }
+                List_DGV.RowCount = Models.Count;
+                for (int i = 0; i < Models.Count; i++)
+                {
+                    List_DGV[0, i].Value = model.Id;
+                    List_DGV[1, i].Value = model.Name;                    
+                }
             }
         }        
     }
