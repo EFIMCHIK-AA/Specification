@@ -15,7 +15,7 @@ namespace Specification.Client
             InitializeComponent();
         }
 
-        private List<Model> Models = new List<Model>();
+        private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
 
         String dataFile = "data.text";
         String confFile = "id.conf";
@@ -130,7 +130,7 @@ namespace Specification.Client
         {
             if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                using (StreamWriter sw = new StreamWriter(File.Open("data.txt", FileMode.Create)))
+                using (StreamWriter sw = new StreamWriter(File.Open("data.text", FileMode.Create)))
                 {
                     for (int i = 0; i < Models.Count; i++)
                     {
