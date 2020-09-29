@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using BusinessModel;
 
@@ -16,11 +17,17 @@ namespace Specification.Client
 
         private List<Model> Models = new List<Model>();
 
+        String dataFile = "data.text";
+        String confFile = "id.conf";
+
         public void ViewDataModel(Model model)
         {
-            List_DGV.RowCount++;
-            List_DGV[0, List_DGV.RowCount - 1].Value = model.Id;
-            List_DGV[1, List_DGV.RowCount - 1].Value = model.Name;
+            if(model != null)
+            {
+                List_DGV.RowCount++;
+                List_DGV[0, List_DGV.RowCount - 1].Value = model.Id;
+                List_DGV[1, List_DGV.RowCount - 1].Value = model.Name;
+            }
         }
 
         public void DeleteViewDataModel(int idRow)
@@ -134,34 +141,40 @@ namespace Specification.Client
                     }
                 }
 
+                int lastId = Helper.Id;
+
                 Application.Exit();
             }
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            var path = "data.txt";
-            var exist = File.Exists(path);
-
-            if (exist)
+            if (File.Exists(dataFile))
             {
-                Model model = new Model();
-
-                using (StreamReader sr = new StreamReader(File.Open("data.txt", FileMode.Open)))
+                using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
                 {
-                    for (int i = 0; i < Models.Count; i++)
+                    String Id = null;
+
+                    while (true)
                     {
-                        model.Id = Convert.ToInt32(sr.ReadLine());
+                        Id = sr.ReadLine();
+
+                        if(Id == null)
+                        {
+                            break;
+                        }
+
+                        Model model = new Model();
+
+                        model.Id = Convert.ToInt32(Id);
                         model.Name = sr.ReadLine();
                         model.Description = sr.ReadLine();
                         model.DateCreate = Convert.ToDateTime(sr.ReadLine());
+
+                        Models.Add(model);
+
+                        ViewDataModel(model);
                     }
-                }
-                List_DGV.RowCount = Models.Count;
-                for (int i = 0; i < Models.Count; i++)
-                {
-                    List_DGV[0, i].Value = model.Id;
-                    List_DGV[1, i].Value = model.Name;                    
                 }
             }
         }        

@@ -59,7 +59,7 @@
             this.List_DGV.ReadOnly = true;
             this.List_DGV.RowHeadersVisible = false;
             this.List_DGV.RowHeadersWidth = 51;
-            this.List_DGV.Size = new System.Drawing.Size(229, 279);
+            this.List_DGV.Size = new System.Drawing.Size(274, 279);
             this.List_DGV.TabIndex = 0;
             this.List_DGV.SelectionChanged += new System.EventHandler(this.List_DGV_SelectionChanged);
             // 
