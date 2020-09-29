@@ -123,7 +123,7 @@ namespace Specification.Client
         {
             if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                using (StreamWriter sw = new StreamWriter(File.Open("data.dat", FileMode.Create)))
+                using (StreamWriter sw = new StreamWriter(File.Open("data.txt", FileMode.Create)))
                 {
                     for (int i = 0; i < Models.Count; i++)
                     {
@@ -140,18 +140,27 @@ namespace Specification.Client
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Model model = new Model();
+            var path = "data.txt";
+            var exist = File.Exists(path);
 
-            using (StreamReader sr = new StreamReader(File.Open("data.dat", FileMode.Open)))
+            if (exist)
             {
-                for (int i = 0; i < Models.Count; i++)
+                Model model = new Model();
+
+                using (StreamReader sr = new StreamReader(File.Open("data.txt", FileMode.Open)))
                 {
-                    sr.ReadLine(Convert.ToInt32(Models[i].Id.Value));
-                    sr.ReadLine(Convert.ToString(Models[i].Name.Value));
-                    sr.ReadLine(Convert.ToString(Models[i].Description.Value));
-                    sr.ReadLine(Convert.ToDateTime(Models[i].DateCreate.Value));
-                }
-            } 
+                    for (int i = 0; i < Models.Count; i++)
+                    {
+                        model.Id = Convert.ToInt32(sr.ReadLine());
+                        model.Name = sr.ReadLine();
+                        model.Description = sr.ReadLine();
+                        model.DateCreate = Convert.ToDateTime(sr.ReadLine());
+
+                        List_DGV[0, i].Value = model.Id;
+                        List_DGV[1, i].Value = model.Name;
+                    }
+                }                
+            }
         }        
     }
 }
