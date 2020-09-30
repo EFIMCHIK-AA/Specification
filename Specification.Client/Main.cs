@@ -18,7 +18,7 @@ namespace Specification.Client
         private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
 
         String dataFile = "data.text";
-        String confFile = "id.conf";
+        String confFile = "id.text";
 
         public void ViewDataModel(Model model)
         {
@@ -39,10 +39,27 @@ namespace Specification.Client
         {
             ModificationModel modificationModel = new ModificationModel(false);
 
+            int lastId = 0;
+
+            if (File.Exists(confFile))
+            {
+                using (StreamReader sr = new StreamReader(File.Open(confFile, FileMode.Open)))
+                {
+                    lastId = Convert.ToInt32(sr.ReadLine());
+                }
+
+                Helper.Id = lastId++;
+
+                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
+                {
+                    sw.WriteLine(lastId);
+                }
+            }
+
             if (modificationModel.ShowDialog() == DialogResult.OK)
             {
                 Model model = new Model
-                {
+                {                 
                     Id = ++Helper.Id,
                     DateCreate = DateTime.Now,
                     Name = modificationModel.Name_TB.Text.Trim(),
@@ -51,7 +68,7 @@ namespace Specification.Client
 
                 Models.Add(model);
                 ViewDataModel(model);
-            };
+            };           
         }
 
         private void Update_B_Click(object sender, EventArgs e)
@@ -143,7 +160,12 @@ namespace Specification.Client
 
                 int lastId = Helper.Id;
 
-                Application.Exit();
+                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
+                {
+                    sw.WriteLine(lastId);
+                }    
+
+                    Application.Exit();
             }
         }
 
