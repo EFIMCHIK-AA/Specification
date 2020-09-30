@@ -188,30 +188,37 @@ namespace Specification.Client
         {
             if (File.Exists(dataFile))
             {
-                using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
+                try
                 {
-                    String Id = null;
-
-                    while (true)
+                    using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
                     {
-                        Id = sr.ReadLine();
+                        String Id = null;
 
-                        if (Id == null)
+                        while (true)
                         {
-                            break;
+                            Id = sr.ReadLine();
+
+                            if (Id == null)
+                            {
+                                break;
+                            }
+
+                            Model model = new Model();
+
+                            model.Id = Convert.ToInt32(Id);
+                            model.Name = sr.ReadLine();
+                            model.Description = sr.ReadLine();
+                            model.DateCreate = Convert.ToDateTime(sr.ReadLine());
+
+                            Models.Add(model);
+
+                            ViewDataModel(model);
                         }
-
-                        Model model = new Model();
-
-                        model.Id = Convert.ToInt32(Id);
-                        model.Name = sr.ReadLine();
-                        model.Description = sr.ReadLine();
-                        model.DateCreate = Convert.ToDateTime(sr.ReadLine());
-
-                        Models.Add(model);
-
-                        ViewDataModel(model);
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
