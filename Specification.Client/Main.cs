@@ -68,6 +68,9 @@ namespace Specification.Client
 
                 Models.Add(model);
                 ViewDataModel(model);
+
+                Update_B.Enabled = true;
+                Delete_B.Enabled = true;
             };           
         }
 
@@ -104,6 +107,17 @@ namespace Specification.Client
 
             Models.Remove(model);
             DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
+
+            if (List_DGV.RowCount == 0)
+            {
+                Name_TB.Clear();
+                Description_TB.Clear();
+                Id_TB.Clear();
+                Date_TB.Clear();
+
+                Update_B.Enabled = false;
+                Delete_B.Enabled = false;
+            }
         }
 
         private void List_DGV_SelectionChanged(object sender, EventArgs e)
@@ -181,7 +195,7 @@ namespace Specification.Client
                     {
                         Id = sr.ReadLine();
 
-                        if(Id == null)
+                        if (Id == null)
                         {
                             break;
                         }
@@ -198,6 +212,11 @@ namespace Specification.Client
                         ViewDataModel(model);
                     }
                 }
+            }
+            else
+            {
+                Update_B.Enabled = false;
+                Delete_B.Enabled = false;
             }
         }        
     }
