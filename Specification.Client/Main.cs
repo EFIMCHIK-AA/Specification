@@ -24,9 +24,7 @@ namespace Specification.Client
         {
             if(model != null)
             {
-                List_DGV.RowCount++;
-                List_DGV[0, List_DGV.RowCount - 1].Value = model.Id;
-                List_DGV[1, List_DGV.RowCount - 1].Value = model.Name;
+                List_DGV.Rows.Add(model.Id, model.Name);
             }
         }
 
@@ -179,7 +177,7 @@ namespace Specification.Client
                     sw.WriteLine(lastId);
                 }    
 
-                    Application.Exit();
+                Application.Exit();
             }
         }
 
@@ -218,6 +216,6 @@ namespace Specification.Client
                 Update_B.Enabled = false;
                 Delete_B.Enabled = false;
             }
-        }        
+        }
     }
 }

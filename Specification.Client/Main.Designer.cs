@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.List_DGV = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Exit_B = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,21 @@
             this.List_DGV.Size = new System.Drawing.Size(279, 279);
             this.List_DGV.TabIndex = 0;
             this.List_DGV.SelectionChanged += new System.EventHandler(this.List_DGV_SelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
             // Add_B
             // 
@@ -170,21 +185,6 @@
             this.Exit_B.Text = "Выход";
             this.Exit_B.UseVisualStyleBackColor = true;
             this.Exit_B.Click += new System.EventHandler(this.Exit_B_Click);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
             // 
             // Main
             // 
