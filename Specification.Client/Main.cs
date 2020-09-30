@@ -101,20 +101,23 @@ namespace Specification.Client
 
         private void Delete_B_Click(object sender, EventArgs e)
         {
-            Model model = GetModel(GetId());
-
-            Models.Remove(model);
-            DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
-
-            if (List_DGV.RowCount == 0)
+            if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                Name_TB.Clear();
-                Description_TB.Clear();
-                Id_TB.Clear();
-                Date_TB.Clear();
+                Model model = GetModel(GetId());
 
-                Update_B.Enabled = false;
-                Delete_B.Enabled = false;
+                Models.Remove(model);
+                DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
+
+                if (List_DGV.RowCount == 0)
+                {
+                    Name_TB.Clear();
+                    Description_TB.Clear();
+                    Id_TB.Clear();
+                    Date_TB.Clear();
+
+                    Update_B.Enabled = false;
+                    Delete_B.Enabled = false;
+                }
             }
         }
 
