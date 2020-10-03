@@ -219,6 +219,8 @@ namespace Specification.Client
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    Application.Exit();
                 }
             }
             else
