@@ -14,11 +14,17 @@ namespace Specification.Client
         {
             InitializeComponent();
         }
+
+        private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
+
+        String dataFile = "data.text";
+        String confFile = "id.text";
+
         private void Main_Load(object sender, EventArgs e)
         {
-            if (File.Exists(dataFile))
+            try
             {
-                try
+                if (File.Exists(dataFile))
                 {
                     using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
                     {
@@ -46,125 +52,123 @@ namespace Specification.Client
                         }
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    File.Create(dataFile);
+                }
 
-                    Application.Exit();
+                if (File.Exists(confFile))
+                {
+                    using (StreamReader sr = new StreamReader(File.Open(confFile, FileMode.Open)))
+                    {
+                        Helper.Id = Convert.ToInt32(sr.ReadLine());
+                    }
+                }
+                else
+                {
+                    File.Create(confFile);
+                }
+
+                if (List_DGV.Rows.Count > 0)
+                {
+                    StateButton(true);
+                }
+                else
+                {
+                    StateButton(false);
                 }
             }
-
-            if (List_DGV.Rows.Count > 0)
+            catch (Exception ex)
             {
-                Update_B.Enabled = true;
-                Delete_B.Enabled = true;
-            }
-            else
-            {
-                Update_B.Enabled = false;
-                Delete_B.Enabled = false;
-            }
-        }
-
-        private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
-
-        String dataFile = "data.text";
-        String confFile = "id.text";
-
-        public void ViewDataModel(Model model)
-        {
-            if(model != null)
-            {
-                List_DGV.Rows.Add(model.Id, model.Name);
-            }
-        }
-
-        public void DeleteViewDataModel(int idRow)
-        {
-            List_DGV.Rows.RemoveAt(idRow);
-        }
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }      
+        }   
 
         private void Add_B_Click(object sender, EventArgs e)
         {
-            ModificationModel modificationModel = new ModificationModel(false);
-
-            int lastId = 0;
-
-            if (File.Exists(confFile))
+            try
             {
-                using (StreamReader sr = new StreamReader(File.Open(confFile, FileMode.Open)))
+                ModificationModel modificationModel = new ModificationModel(false);
+
+                if (modificationModel.ShowDialog() == DialogResult.OK)
                 {
-                    lastId = Convert.ToInt32(sr.ReadLine());
-                }
-            }
+                    Model model = new Model
+                    {
+                        Id = ++Helper.Id,
+                        DateCreate = DateTime.Now,
+                        Name = modificationModel.Name_TB.Text.Trim(),
+                        Description = modificationModel.Description_TB.Text.Trim(),
+                    };
 
-            if (modificationModel.ShowDialog() == DialogResult.OK)
-            {
-                Model model = new Model
-                {                 
-                    Id = ++Helper.Id,
-                    DateCreate = DateTime.Now,
-                    Name = modificationModel.Name_TB.Text.Trim(),
-                    Description = modificationModel.Description_TB.Text.Trim(),
+                    Models.Add(model);
+                    ViewDataModel(model);
                 };
-
-                Helper.Id = lastId++;
-
-                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
-                {
-                    sw.WriteLine(lastId);
-                }
-
-                Models.Add(model);
-                ViewDataModel(model);
-            };           
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void Update_B_Click(object sender, EventArgs e)
         {
-            ModificationModel modificationModel = new ModificationModel(true);
-
-            Model model = GetModel(GetId());
-
-            modificationModel.Name_TB.Text = model.Name;
-            modificationModel.Description_TB.Text = model.Description;
-
-            if (modificationModel.ShowDialog() == DialogResult.OK)
+            try
             {
-                Model updateModel = new Model
+                ModificationModel modificationModel = new ModificationModel(true);
+
+                Model model = GetModel(GetId());
+
+                modificationModel.Name_TB.Text = model.Name;
+                modificationModel.Description_TB.Text = model.Description;
+
+                if (modificationModel.ShowDialog() == DialogResult.OK)
                 {
-                    Id = model.Id,
-                    DateCreate = DateTime.Now,
-                    Name = modificationModel.Name_TB.Text.Trim(),
-                    Description = modificationModel.Description_TB.Text.Trim(),
+                    Model updateModel = new Model
+                    {
+                        Id = model.Id,
+                        DateCreate = DateTime.Now,
+                        Name = modificationModel.Name_TB.Text.Trim(),
+                        Description = modificationModel.Description_TB.Text.Trim(),
+                    };
+
+                    Models.Remove(model);
+                    DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
+
+                    Models.Add(updateModel);
+                    ViewDataModel(updateModel);
                 };
-
-                Models.Remove(model);
-                DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
-
-                Models.Add(updateModel);
-                ViewDataModel(updateModel);
-            };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }   
         }
 
         private void Delete_B_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            try
             {
-                Model model = GetModel(GetId());
-
-                Models.Remove(model);
-                DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
-
-                if (List_DGV.RowCount == 0)
+                if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Name_TB.Clear();
-                    Description_TB.Clear();
-                    Id_TB.Clear();
-                    Date_TB.Clear();
+                    Model model = GetModel(GetId());
 
+                    Models.Remove(model);
+                    DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
+
+                    if (List_DGV.RowCount == 0)
+                    {
+                        Name_TB.Clear();
+                        Description_TB.Clear();
+                        Id_TB.Clear();
+                        Date_TB.Clear();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }  
         }
 
         private void List_DGV_SelectionChanged(object sender, EventArgs e)
@@ -180,14 +184,51 @@ namespace Specification.Client
                     Description_TB.Text = model.Description;
                     Date_TB.Text = model.DateCreate.ToString();
                 }
-                Update_B.Enabled = true;
-                Delete_B.Enabled = true;
+
+                StateButton(true);
             }
             else
             {
-                Update_B.Enabled = false;
-                Delete_B.Enabled = false;
+                StateButton(false);
             }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    using (StreamWriter sw = new StreamWriter(File.Open("data.text", FileMode.Create)))
+                    {
+                        for (int i = 0; i < Models.Count; i++)
+                        {
+                            sw.WriteLine(Models[i].Id);
+                            sw.WriteLine(Models[i].Name);
+                            sw.WriteLine(Models[i].Description);
+                            sw.WriteLine(Models[i].DateCreate);
+                        }
+                    }
+
+                    using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.Create)))
+                    {
+                        sw.WriteLine(Helper.Id);
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }           
+        }
+
+        private void Exit_B_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private Model GetModel(int id)
@@ -211,35 +252,23 @@ namespace Specification.Client
             return Convert.ToInt32(List_DGV[0, List_DGV.CurrentCell.RowIndex].Value);
         }
 
-        private void Exit_B_Click(object sender, EventArgs e)
-        {            
-            Application.Exit();          
+        private void StateButton(bool state)
+        {
+            Update_B.Enabled = state;
+            Delete_B.Enabled = state;
         }
 
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        public void ViewDataModel(Model model)
         {
-            if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (model != null)
             {
-                using (StreamWriter sw = new StreamWriter(File.Open("data.text", FileMode.Create)))
-                {
-                    for (int i = 0; i < Models.Count; i++)
-                    {
-                        sw.WriteLine(Models[i].Id);
-                        sw.WriteLine(Models[i].Name);
-                        sw.WriteLine(Models[i].Description);
-                        sw.WriteLine(Models[i].DateCreate);
-                    }
-                }
-
-                int lastId = Helper.Id;
-
-                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
-                {
-                    sw.WriteLine(lastId);
-                }
+                List_DGV.Rows.Add(model.Id, model.Name);
             }
-            else
-            e.Cancel = true;
-        }   
+        }
+
+        public void DeleteViewDataModel(int idRow)
+        {
+            List_DGV.Rows.RemoveAt(idRow);
+        }
     }
 }
