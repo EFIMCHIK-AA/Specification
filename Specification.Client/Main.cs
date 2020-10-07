@@ -14,7 +14,56 @@ namespace Specification.Client
         {
             InitializeComponent();
         }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            if (File.Exists(dataFile))
+            {
+                try
+                {
+                    using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
+                    {
+                        String Id = null;
 
+                        while (true)
+                        {
+                            Id = sr.ReadLine();
+
+                            if (Id == null)
+                            {
+                                break;
+                            }
+
+                            Model model = new Model();
+
+                            model.Id = Convert.ToInt32(Id);
+                            model.Name = sr.ReadLine();
+                            model.Description = sr.ReadLine();
+                            model.DateCreate = Convert.ToDateTime(sr.ReadLine());
+
+                            Models.Add(model);
+
+                            ViewDataModel(model);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    Application.Exit();
+                }
+            }
+            if (List_DGV.Rows.Count > 0)
+            {
+                Update_B.Enabled = true;
+                Delete_B.Enabled = true;
+            }
+            else
+            {
+                Update_B.Enabled = false;
+                Delete_B.Enabled = false;
+            }
+        }
         private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
 
         String dataFile = "data.text";
@@ -134,6 +183,13 @@ namespace Specification.Client
                     Description_TB.Text = model.Description;
                     Date_TB.Text = model.DateCreate.ToString();
                 }
+                Update_B.Enabled = true;
+                Delete_B.Enabled = true;
+            }
+            else
+            {
+                Update_B.Enabled = false;
+                Delete_B.Enabled = false;
             }
         }
 
@@ -159,6 +215,11 @@ namespace Specification.Client
         }
 
         private void Exit_B_Click(object sender, EventArgs e)
+        {            
+            Application.Exit();          
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
@@ -178,56 +239,8 @@ namespace Specification.Client
                 using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
                 {
                     sw.WriteLine(lastId);
-                }    
-
-                Application.Exit();
-            }
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            if (File.Exists(dataFile))
-            {
-                try
-                {
-                    using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
-                    {
-                        String Id = null;
-
-                        while (true)
-                        {
-                            Id = sr.ReadLine();
-
-                            if (Id == null)
-                            {
-                                break;
-                            }
-
-                            Model model = new Model();
-
-                            model.Id = Convert.ToInt32(Id);
-                            model.Name = sr.ReadLine();
-                            model.Description = sr.ReadLine();
-                            model.DateCreate = Convert.ToDateTime(sr.ReadLine());
-
-                            Models.Add(model);
-
-                            ViewDataModel(model);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    Application.Exit();
                 }
             }
-            else
-            {
-                Update_B.Enabled = false;
-                Delete_B.Enabled = false;
-            }
-        }
+        }   
     }
 }
