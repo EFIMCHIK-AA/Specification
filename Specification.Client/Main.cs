@@ -53,6 +53,7 @@ namespace Specification.Client
                     Application.Exit();
                 }
             }
+
             if (List_DGV.Rows.Count > 0)
             {
                 Update_B.Enabled = true;
@@ -64,6 +65,7 @@ namespace Specification.Client
                 Delete_B.Enabled = false;
             }
         }
+
         private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
 
         String dataFile = "data.text";
@@ -94,13 +96,6 @@ namespace Specification.Client
                 {
                     lastId = Convert.ToInt32(sr.ReadLine());
                 }
-
-                Helper.Id = lastId++;
-
-                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
-                {
-                    sw.WriteLine(lastId);
-                }
             }
 
             if (modificationModel.ShowDialog() == DialogResult.OK)
@@ -112,6 +107,13 @@ namespace Specification.Client
                     Name = modificationModel.Name_TB.Text.Trim(),
                     Description = modificationModel.Description_TB.Text.Trim(),
                 };
+
+                Helper.Id = lastId++;
+
+                using (StreamWriter sw = new StreamWriter(File.Open("id.text", FileMode.Create)))
+                {
+                    sw.WriteLine(lastId);
+                }
 
                 Models.Add(model);
                 ViewDataModel(model);
@@ -236,6 +238,8 @@ namespace Specification.Client
                     sw.WriteLine(lastId);
                 }
             }
+            else
+            e.Cancel = true;
         }   
     }
 }
