@@ -84,7 +84,7 @@
             this.Add_B.Name = "Add_B";
             this.Add_B.Size = new System.Drawing.Size(260, 26);
             this.Add_B.TabIndex = 2;
-            this.Add_B.Text = "&Добавить";
+            this.Add_B.Text = "Добавить";
             this.Add_B.UseVisualStyleBackColor = true;
             this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
             // 
@@ -94,7 +94,7 @@
             this.Update_B.Name = "Update_B";
             this.Update_B.Size = new System.Drawing.Size(260, 26);
             this.Update_B.TabIndex = 3;
-            this.Update_B.Text = "&Изменить";
+            this.Update_B.Text = "Изменить";
             this.Update_B.UseVisualStyleBackColor = true;
             this.Update_B.Click += new System.EventHandler(this.Update_B_Click);
             // 
@@ -104,7 +104,7 @@
             this.Delete_B.Name = "Delete_B";
             this.Delete_B.Size = new System.Drawing.Size(260, 26);
             this.Delete_B.TabIndex = 4;
-            this.Delete_B.Text = "&Удалить";
+            this.Delete_B.Text = "Удалить";
             this.Delete_B.UseVisualStyleBackColor = true;
             this.Delete_B.Click += new System.EventHandler(this.Delete_B_Click);
             // 
@@ -182,7 +182,7 @@
             this.Exit_B.Name = "Exit_B";
             this.Exit_B.Size = new System.Drawing.Size(260, 26);
             this.Exit_B.TabIndex = 13;
-            this.Exit_B.Text = "&Выход";
+            this.Exit_B.Text = "Выход";
             this.Exit_B.UseVisualStyleBackColor = true;
             this.Exit_B.Click += new System.EventHandler(this.Exit_B_Click);
             // 
@@ -208,7 +208,6 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список моделей";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).EndInit();
             this.ResumeLayout(false);

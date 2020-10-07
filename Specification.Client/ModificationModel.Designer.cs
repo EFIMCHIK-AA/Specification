@@ -76,7 +76,7 @@
             this.OK_B.Name = "OK_B";
             this.OK_B.Size = new System.Drawing.Size(160, 23);
             this.OK_B.TabIndex = 3;
-            this.OK_B.Text = "&Сохранить";
+            this.OK_B.Text = "Сохранить";
             this.OK_B.UseVisualStyleBackColor = true;
             // 
             // Cancel_B
@@ -86,7 +86,7 @@
             this.Cancel_B.Name = "Cancel_B";
             this.Cancel_B.Size = new System.Drawing.Size(160, 23);
             this.Cancel_B.TabIndex = 4;
-            this.Cancel_B.Text = "&Отмена";
+            this.Cancel_B.Text = "Отмена";
             this.Cancel_B.UseVisualStyleBackColor = true;
             // 
             // ModificationModel
