@@ -115,9 +115,6 @@ namespace Specification.Client
 
                 Models.Add(model);
                 ViewDataModel(model);
-
-                Update_B.Enabled = true;
-                Delete_B.Enabled = true;
             };           
         }
 
@@ -164,8 +161,6 @@ namespace Specification.Client
                     Id_TB.Clear();
                     Date_TB.Clear();
 
-                    Update_B.Enabled = false;
-                    Delete_B.Enabled = false;
                 }
             }
         }
