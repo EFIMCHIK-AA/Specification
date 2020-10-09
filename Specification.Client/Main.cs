@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,27 @@ namespace Specification.Client
             InitializeComponent();
         }
 
-        private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
+        private BindingList<Model> Models = new BindingList<Model>();
+
+        private void InitializeListOfModels()
+        {
+            Models = new BindingList<Model>();
+
+            Models.AllowNew = true;
+            Models.AllowRemove = true;
+
+            Models.RaiseListChangedEvents = true;
+
+            Models.AllowEdit = false;
+        }
 
         String dataFile = "data.text";
         String confFile = "id.text";
 
         private void Main_Load(object sender, EventArgs e)
         {
+            InitializeListOfModels();
+
             try
             {
                 if (File.Exists(dataFile))
@@ -132,7 +147,7 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-                    Models.Remove(model);
+                    //Models.Remove(model);
                     DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
 
                     Models.Add(updateModel);
