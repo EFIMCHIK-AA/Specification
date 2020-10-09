@@ -25,11 +25,13 @@ namespace Specification.Client
         {                     
             if (IsUpdate)
             {
-                this.Text = "Изменение данных";               
+                this.Text = "Изменение данных";
+                label5.Text = "Изменение данных";
             }
             else
             {
                 this.Text = "Добавление данных";
+                label5.Text = "Добавление данных";
             }
         }
         

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using BusinessModel;
 
@@ -16,18 +12,16 @@ namespace Specification.Client
             InitializeComponent();
         }
 
-        private BindingList<Model> Models = new BindingList<Model>();
+        private SortableBindingList<Model> Models;
 
         private void InitializeListOfModels()
         {
-            Models = new BindingList<Model>();
+            Models = new SortableBindingList<Model>();
 
-            Models.AllowNew = true;
-            Models.AllowRemove = true;
+            List_DGV.DataSource = Models;
 
-            Models.RaiseListChangedEvents = true;
-
-            Models.AllowEdit = false;
+            List_DGV.Columns["Description"].Visible = false;
+            List_DGV.Columns["DateCreate"].Visible = false;
         }
 
         String dataFile = "data.text";
@@ -62,8 +56,6 @@ namespace Specification.Client
                             model.DateCreate = Convert.ToDateTime(sr.ReadLine());
 
                             Models.Add(model);
-
-                            ViewDataModel(model);
                         }
                     }
                 }
@@ -117,7 +109,6 @@ namespace Specification.Client
                     };
 
                     Models.Add(model);
-                    ViewDataModel(model);
                 };
             }
             catch(Exception ex)
@@ -132,7 +123,12 @@ namespace Specification.Client
             {
                 ModificationModel modificationModel = new ModificationModel(true);
 
-                Model model = GetModel(GetId());
+                Model model = List_DGV.CurrentRow.DataBoundItem as Model;
+
+                if(model == null)
+                {
+                    throw new Exception("Необходимо выбрать Объект не выбран");
+                }
 
                 modificationModel.Name_TB.Text = model.Name;
                 modificationModel.Description_TB.Text = model.Description;
@@ -147,11 +143,8 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-                    //Models.Remove(model);
-                    DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
-
+                    Models.Remove(model);
                     Models.Add(updateModel);
-                    ViewDataModel(updateModel);
                 };
             }
             catch (Exception ex)
@@ -166,10 +159,9 @@ namespace Specification.Client
             {
                 if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Model model = GetModel(GetId());
+                    Model model = List_DGV.CurrentRow.DataBoundItem as Model;
 
                     Models.Remove(model);
-                    DeleteViewDataModel(List_DGV.CurrentCell.RowIndex);
 
                     if (List_DGV.RowCount == 0)
                     {
@@ -190,7 +182,7 @@ namespace Specification.Client
         {
             if (List_DGV.CurrentCell != null)
             {
-                Model model = GetModel(GetId());
+                Model model = List_DGV.CurrentRow.DataBoundItem as Model;
 
                 if (model != null)
                 {
@@ -246,44 +238,10 @@ namespace Specification.Client
             Application.Exit();
         }
 
-        private Model GetModel(int id)
-        {
-            Model model = null;
-
-            for (int i = 0; i < Models.Count; i++)
-            {
-                if (Models[i].Id == id)
-                {
-                    model = Models[i];
-                    break;
-                }
-            }
-
-            return model;
-        }
-
-        private int GetId()
-        {
-            return Convert.ToInt32(List_DGV[0, List_DGV.CurrentCell.RowIndex].Value);
-        }
-
         private void StateButton(bool state)
         {
             Update_B.Enabled = state;
             Delete_B.Enabled = state;
-        }
-
-        public void ViewDataModel(Model model)
-        {
-            if (model != null)
-            {
-                List_DGV.Rows.Add(model.Id, model.Name);
-            }
-        }
-
-        public void DeleteViewDataModel(int idRow)
-        {
-            List_DGV.Rows.RemoveAt(idRow);
         }
     }
 }
