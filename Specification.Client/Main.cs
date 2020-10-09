@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,8 +16,6 @@ namespace Specification.Client
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            InitializeListOfModels();
-
             if (File.Exists(dataFile))
             {
                 try
@@ -69,19 +66,7 @@ namespace Specification.Client
             }
         }
 
-        private BindingList<Model> Models = new BindingList<Model>();
-
-        private void InitializeListOfModels()
-        {
-            Models = new BindingList<Model>();
-                  
-            Models.AllowNew = true;
-            Models.AllowRemove = false;
-           
-            Models.RaiseListChangedEvents = true;
-          
-            Models.AllowEdit = false;                    
-        }
+        private List<Model> Models = new List<Model>(); //List<Model> - список всех моделей
 
         String dataFile = "data.text";
         String confFile = "id.text";
