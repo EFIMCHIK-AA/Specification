@@ -9,6 +9,5 @@ namespace Specification.Client
     public class Helper
     {
         public static int Id = 0;
-
     }
 }
