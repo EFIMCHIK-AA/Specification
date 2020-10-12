@@ -59,7 +59,7 @@
             this.List_DGV.AllowUserToDeleteRows = false;
             this.List_DGV.AllowUserToResizeColumns = false;
             this.List_DGV.AllowUserToResizeRows = false;
-            this.List_DGV.BackgroundColor = System.Drawing.Color.Azure;
+            this.List_DGV.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.List_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
