@@ -98,8 +98,8 @@
             this.OK_B.Margin = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.OK_B.Name = "OK_B";
             this.OK_B.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.OK_B.Size = new System.Drawing.Size(199, 40);
-            this.OK_B.TabIndex = 5;
+            this.OK_B.Size = new System.Drawing.Size(199, 30);
+            this.OK_B.TabIndex = 3;
             this.OK_B.Text = "&Сохранить";
             this.OK_B.UseVisualStyleBackColor = false;
             // 
@@ -112,8 +112,8 @@
             this.Cancel_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Cancel_B.Name = "Cancel_B";
             this.Cancel_B.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.Cancel_B.Size = new System.Drawing.Size(204, 40);
-            this.Cancel_B.TabIndex = 6;
+            this.Cancel_B.Size = new System.Drawing.Size(214, 30);
+            this.Cancel_B.TabIndex = 4;
             this.Cancel_B.Text = "&Отмена";
             this.Cancel_B.UseVisualStyleBackColor = false;
             // 
