@@ -169,10 +169,7 @@ namespace Specification.Client
                         Description_TB.Clear();
                         Id_TB.Clear();
                         Date_TB.Clear();
-
-                        List_DGV.CurrentCell = List_DGV.Rows[List_DGV.Rows.Count - 1].Cells[1];
                     }
-                    
                 }
             }
             catch (Exception ex)
