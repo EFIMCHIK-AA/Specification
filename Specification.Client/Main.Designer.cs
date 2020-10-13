@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.List_DGV = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add_B = new System.Windows.Forms.Button();
             this.Update_B = new System.Windows.Forms.Button();
             this.Description_TB = new System.Windows.Forms.TextBox();
             this.Id_TB = new System.Windows.Forms.TextBox();
             this.Date_TB = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Description_L = new System.Windows.Forms.Label();
+            this.ID_L = new System.Windows.Forms.Label();
+            this.Date_L = new System.Windows.Forms.Label();
             this.Name_TB = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Name_L = new System.Windows.Forms.Label();
             this.Delete_B = new System.Windows.Forms.Button();
             this.Exit_B = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Spisok_L = new System.Windows.Forms.Label();
+            this.Description_LHeader = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.List_DGV)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -60,6 +63,14 @@
             this.List_DGV.AllowUserToResizeColumns = false;
             this.List_DGV.AllowUserToResizeRows = false;
             this.List_DGV.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.List_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -74,27 +85,8 @@
             this.List_DGV.RowHeadersWidth = 51;
             this.List_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.List_DGV.Size = new System.Drawing.Size(980, 579);
-            this.List_DGV.TabIndex = 0;
+            this.List_DGV.TabIndex = 2;
             this.List_DGV.SelectionChanged += new System.EventHandler(this.List_DGV_SelectionChanged);
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "Идентифкатор";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "Name";
-            this.Column1.HeaderText = "Наименование";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Add_B
             // 
@@ -106,7 +98,7 @@
             this.Add_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Add_B.Name = "Add_B";
             this.Add_B.Size = new System.Drawing.Size(420, 34);
-            this.Add_B.TabIndex = 2;
+            this.Add_B.TabIndex = 11;
             this.Add_B.Text = "&Добавить";
             this.Add_B.UseVisualStyleBackColor = false;
             this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
@@ -121,7 +113,7 @@
             this.Update_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Update_B.Name = "Update_B";
             this.Update_B.Size = new System.Drawing.Size(420, 34);
-            this.Update_B.TabIndex = 3;
+            this.Update_B.TabIndex = 12;
             this.Update_B.Text = "&Изменить";
             this.Update_B.UseVisualStyleBackColor = false;
             this.Update_B.Click += new System.EventHandler(this.Update_B_Click);
@@ -136,6 +128,7 @@
             this.Description_TB.ReadOnly = true;
             this.Description_TB.Size = new System.Drawing.Size(294, 23);
             this.Description_TB.TabIndex = 6;
+            this.Description_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Id_TB
             // 
@@ -146,7 +139,8 @@
             this.Id_TB.Name = "Id_TB";
             this.Id_TB.ReadOnly = true;
             this.Id_TB.Size = new System.Drawing.Size(294, 23);
-            this.Id_TB.TabIndex = 7;
+            this.Id_TB.TabIndex = 8;
+            this.Id_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Date_TB
             // 
@@ -157,43 +151,44 @@
             this.Date_TB.Name = "Date_TB";
             this.Date_TB.ReadOnly = true;
             this.Date_TB.Size = new System.Drawing.Size(294, 23);
-            this.Date_TB.TabIndex = 8;
+            this.Date_TB.TabIndex = 10;
+            this.Date_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label2
+            // Description_L
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(0, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 23);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Описание";
+            this.Description_L.AutoSize = true;
+            this.Description_L.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Description_L.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Description_L.Location = new System.Drawing.Point(0, 28);
+            this.Description_L.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.Description_L.Name = "Description_L";
+            this.Description_L.Size = new System.Drawing.Size(121, 23);
+            this.Description_L.TabIndex = 5;
+            this.Description_L.Text = "Описание";
             // 
-            // label3
+            // ID_L
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(0, 56);
-            this.label3.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 23);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Идентификатор";
+            this.ID_L.AutoSize = true;
+            this.ID_L.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ID_L.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ID_L.Location = new System.Drawing.Point(0, 56);
+            this.ID_L.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.ID_L.Name = "ID_L";
+            this.ID_L.Size = new System.Drawing.Size(121, 23);
+            this.ID_L.TabIndex = 7;
+            this.ID_L.Text = "Идентификатор";
             // 
-            // label4
+            // Date_L
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(0, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 23);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Дата изменения";
+            this.Date_L.AutoSize = true;
+            this.Date_L.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Date_L.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Date_L.Location = new System.Drawing.Point(0, 84);
+            this.Date_L.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.Date_L.Name = "Date_L";
+            this.Date_L.Size = new System.Drawing.Size(121, 23);
+            this.Date_L.TabIndex = 9;
+            this.Date_L.Text = "Дата изменения";
             // 
             // Name_TB
             // 
@@ -204,19 +199,20 @@
             this.Name_TB.Name = "Name_TB";
             this.Name_TB.ReadOnly = true;
             this.Name_TB.Size = new System.Drawing.Size(294, 23);
-            this.Name_TB.TabIndex = 5;
+            this.Name_TB.TabIndex = 4;
+            this.Name_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label1
+            // Name_L
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 23);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Наименование";
+            this.Name_L.AutoSize = true;
+            this.Name_L.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Name_L.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Name_L.Location = new System.Drawing.Point(0, 0);
+            this.Name_L.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.Name_L.Name = "Name_L";
+            this.Name_L.Size = new System.Drawing.Size(121, 23);
+            this.Name_L.TabIndex = 3;
+            this.Name_L.Text = "Наименование";
             // 
             // Delete_B
             // 
@@ -228,7 +224,7 @@
             this.Delete_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Delete_B.Name = "Delete_B";
             this.Delete_B.Size = new System.Drawing.Size(420, 34);
-            this.Delete_B.TabIndex = 4;
+            this.Delete_B.TabIndex = 13;
             this.Delete_B.Text = "&Удалить";
             this.Delete_B.UseVisualStyleBackColor = false;
             this.Delete_B.Click += new System.EventHandler(this.Delete_B_Click);
@@ -243,42 +239,42 @@
             this.Exit_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Exit_B.Name = "Exit_B";
             this.Exit_B.Size = new System.Drawing.Size(420, 42);
-            this.Exit_B.TabIndex = 13;
+            this.Exit_B.TabIndex = 14;
             this.Exit_B.Text = "&Выход";
             this.Exit_B.UseVisualStyleBackColor = false;
             this.Exit_B.Click += new System.EventHandler(this.Exit_B_Click);
             // 
-            // label5
+            // Spisok_L
             // 
-            this.label5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(5, 5);
-            this.label5.Margin = new System.Windows.Forms.Padding(5);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(3);
-            this.label5.Size = new System.Drawing.Size(980, 45);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Список элементов";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Spisok_L.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Spisok_L.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Spisok_L.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Spisok_L.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Spisok_L.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Spisok_L.Location = new System.Drawing.Point(5, 5);
+            this.Spisok_L.Margin = new System.Windows.Forms.Padding(5);
+            this.Spisok_L.Name = "Spisok_L";
+            this.Spisok_L.Padding = new System.Windows.Forms.Padding(3);
+            this.Spisok_L.Size = new System.Drawing.Size(980, 45);
+            this.Spisok_L.TabIndex = 0;
+            this.Spisok_L.Text = "Список элементов";
+            this.Spisok_L.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // Description_LHeader
             // 
-            this.label6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(990, 5);
-            this.label6.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(3);
-            this.label6.Size = new System.Drawing.Size(420, 45);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Описание";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Description_LHeader.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Description_LHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Description_LHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Description_LHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Description_LHeader.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Description_LHeader.Location = new System.Drawing.Point(990, 5);
+            this.Description_LHeader.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.Description_LHeader.Name = "Description_LHeader";
+            this.Description_LHeader.Padding = new System.Windows.Forms.Padding(3);
+            this.Description_LHeader.Size = new System.Drawing.Size(420, 45);
+            this.Description_LHeader.TabIndex = 1;
+            this.Description_LHeader.Text = "Описание";
+            this.Description_LHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
             // 
@@ -286,9 +282,9 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel4.Controls.Add(this.List_DGV, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Spisok_L, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label6, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.Description_LHeader, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -309,11 +305,11 @@
             this.tableLayoutPanel5.Controls.Add(this.Update_B, 0, 5);
             this.tableLayoutPanel5.Controls.Add(this.Add_B, 0, 4);
             this.tableLayoutPanel5.Controls.Add(this.Description_TB, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.Date_L, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.Name_L, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.ID_L, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.Name_TB, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.Description_L, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.Id_TB, 1, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(990, 55);
@@ -331,6 +327,29 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.Size = new System.Drawing.Size(425, 584);
             this.tableLayoutPanel5.TabIndex = 18;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "Id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ID.HeaderText = "Идентифкатор";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "Name";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.HeaderText = "Наименование";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Main
             // 
@@ -365,19 +384,19 @@
         private System.Windows.Forms.TextBox Description_TB;
         private System.Windows.Forms.TextBox Id_TB;
         private System.Windows.Forms.TextBox Date_TB;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label Description_L;
+        private System.Windows.Forms.Label ID_L;
+        private System.Windows.Forms.Label Date_L;
+        private System.Windows.Forms.Label Spisok_L;
+        private System.Windows.Forms.Label Description_LHeader;
         private System.Windows.Forms.TextBox Name_TB;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Name_L;
         private System.Windows.Forms.Button Delete_B;
         private System.Windows.Forms.Button Exit_B;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
