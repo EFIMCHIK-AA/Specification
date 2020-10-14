@@ -69,7 +69,7 @@
             this.Name_TB.Location = new System.Drawing.Point(125, 55);
             this.Name_TB.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Name_TB.Name = "Name_TB";
-            this.Name_TB.Size = new System.Drawing.Size(330, 22);
+            this.Name_TB.Size = new System.Drawing.Size(327, 22);
             this.Name_TB.TabIndex = 2;
             this.Name_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -81,7 +81,7 @@
             this.Description_TB.Location = new System.Drawing.Point(125, 82);
             this.Description_TB.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Description_TB.Name = "Description_TB";
-            this.Description_TB.Size = new System.Drawing.Size(330, 22);
+            this.Description_TB.Size = new System.Drawing.Size(327, 22);
             this.Description_TB.TabIndex = 4;
             this.Description_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -90,11 +90,11 @@
             this.OK_B.BackColor = System.Drawing.Color.WhiteSmoke;
             this.OK_B.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OK_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OK_B.Location = new System.Drawing.Point(5, 136);
+            this.OK_B.Location = new System.Drawing.Point(5, 139);
             this.OK_B.Margin = new System.Windows.Forms.Padding(5);
             this.OK_B.Name = "OK_B";
             this.OK_B.Size = new System.Drawing.Size(115, 34);
-            this.OK_B.TabIndex = 3;
+            this.OK_B.TabIndex = 5;
             this.OK_B.Text = "&Сохранить";
             this.OK_B.UseVisualStyleBackColor = false;
             // 
@@ -103,11 +103,11 @@
             this.Cancel_B.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Cancel_B.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Cancel_B.Location = new System.Drawing.Point(340, 136);
+            this.Cancel_B.Location = new System.Drawing.Point(337, 139);
             this.Cancel_B.Margin = new System.Windows.Forms.Padding(5);
             this.Cancel_B.Name = "Cancel_B";
             this.Cancel_B.Size = new System.Drawing.Size(115, 34);
-            this.Cancel_B.TabIndex = 4;
+            this.Cancel_B.TabIndex = 6;
             this.Cancel_B.Text = "&Отмена";
             this.Cancel_B.UseVisualStyleBackColor = false;
             // 
@@ -122,7 +122,7 @@
             this.label5.Location = new System.Drawing.Point(5, 5);
             this.label5.Margin = new System.Windows.Forms.Padding(5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(450, 45);
+            this.label5.Size = new System.Drawing.Size(447, 45);
             this.label5.TabIndex = 0;
             this.label5.Text = "Список элементов";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,7 +149,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 175);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(457, 178);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // ModificationModel
@@ -159,12 +159,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.CancelButton = this.Cancel_B;
-            this.ClientSize = new System.Drawing.Size(460, 175);
+            this.ClientSize = new System.Drawing.Size(457, 178);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(475, 225);
             this.Name = "ModificationModel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавлене";
