@@ -108,6 +108,9 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
+                    //INSERT TO DB
+
+
                     Models.Add(model);
                 };
             }
@@ -211,7 +214,7 @@ namespace Specification.Client
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.Create)))
+                    using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.OpenOrCreate)))
                     {
                         for (int i = 0; i < Models.Count; i++)
                         {
@@ -222,7 +225,7 @@ namespace Specification.Client
                         }
                     }
 
-                    using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.Create)))
+                    using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.OpenOrCreate)))
                     {
                         sw.WriteLine(Helper.Id);
                     }
