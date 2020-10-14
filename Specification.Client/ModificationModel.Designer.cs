@@ -43,18 +43,18 @@
             // Name_L
             // 
             this.Name_L.AutoSize = true;
-            this.Name_L.Location = new System.Drawing.Point(5, 49);
+            this.Name_L.Location = new System.Drawing.Point(5, 67);
             this.Name_L.Margin = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.Name_L.Name = "Name_L";
             this.Name_L.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
-            this.Name_L.Size = new System.Drawing.Size(93, 17);
+            this.Name_L.Size = new System.Drawing.Size(93, 18);
             this.Name_L.TabIndex = 1;
             this.Name_L.Text = "Наименование";
             // 
             // Description_L
             // 
             this.Description_L.AutoSize = true;
-            this.Description_L.Location = new System.Drawing.Point(5, 71);
+            this.Description_L.Location = new System.Drawing.Point(5, 97);
             this.Description_L.Margin = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.Description_L.Name = "Description_L";
             this.Description_L.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
@@ -65,7 +65,7 @@
             // Name_TB
             // 
             this.Name_TB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Name_TB.Location = new System.Drawing.Point(232, 49);
+            this.Name_TB.Location = new System.Drawing.Point(240, 67);
             this.Name_TB.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Name_TB.Name = "Name_TB";
             this.Name_TB.Size = new System.Drawing.Size(227, 20);
@@ -75,7 +75,7 @@
             // Description_TB
             // 
             this.Description_TB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Description_TB.Location = new System.Drawing.Point(232, 71);
+            this.Description_TB.Location = new System.Drawing.Point(240, 97);
             this.Description_TB.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Description_TB.Name = "Description_TB";
             this.Description_TB.Size = new System.Drawing.Size(227, 20);
@@ -86,7 +86,7 @@
             // 
             this.OK_B.BackColor = System.Drawing.Color.WhiteSmoke;
             this.OK_B.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OK_B.Location = new System.Drawing.Point(5, 98);
+            this.OK_B.Location = new System.Drawing.Point(5, 124);
             this.OK_B.Margin = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.OK_B.Name = "OK_B";
             this.OK_B.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
@@ -99,7 +99,7 @@
             // 
             this.Cancel_B.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Cancel_B.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel_B.Location = new System.Drawing.Point(232, 98);
+            this.Cancel_B.Location = new System.Drawing.Point(240, 124);
             this.Cancel_B.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.Cancel_B.Name = "Cancel_B";
             this.Cancel_B.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
@@ -144,7 +144,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 136);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(480, 162);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // ModificationModel
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.CancelButton = this.Cancel_B;
-            this.ClientSize = new System.Drawing.Size(526, 225);
+            this.ClientSize = new System.Drawing.Size(516, 200);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
