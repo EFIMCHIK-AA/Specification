@@ -26,12 +26,12 @@ namespace Specification.Client
             if (IsUpdate)
             {
                 this.Text = "Изменение данных";
-                label5.Text = "Изменение данных";
+                Header_L.Text = "Изменение данных";
             }
             else
             {
                 this.Text = "Добавление данных";
-                label5.Text = "Добавление данных";
+                Header_L.Text = "Добавление данных";
             }
         }
         
