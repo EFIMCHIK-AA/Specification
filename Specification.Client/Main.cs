@@ -211,7 +211,7 @@ namespace Specification.Client
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    using (StreamWriter sw = new StreamWriter(File.Open("data.text", FileMode.Create)))
+                    using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.Create)))
                     {
                         for (int i = 0; i < Models.Count; i++)
                         {
