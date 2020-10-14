@@ -31,7 +31,7 @@ namespace Specification.Client
         {
             InitializeListOfModels();
 
-            try
+            try 
             {
                 if (File.Exists(dataFile))
                 {
