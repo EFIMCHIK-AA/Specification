@@ -60,11 +60,13 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificationModel.cs">
+    <Compile Include="..\..\..\..\..\OneDrive\Рабочий стол\ModificationModel.cs">
       <SubType>Form</SubType>
+      <Link>ModificationModel.cs</Link>
     </Compile>
-    <Compile Include="ModificationModel.Designer.cs">
+    <Compile Include="..\..\..\..\..\OneDrive\Рабочий стол\ModificationModel.Designer.cs">
       <DependentUpon>ModificationModel.cs</DependentUpon>
+      <Link>ModificationModel.Designer.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +75,9 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificationModel.resx">
+    <EmbeddedResource Include="..\..\..\..\..\OneDrive\Рабочий стол\ModificationModel.resx">
       <DependentUpon>ModificationModel.cs</DependentUpon>
+      <Link>ModificationModel.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

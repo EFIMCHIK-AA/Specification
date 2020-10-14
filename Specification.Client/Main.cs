@@ -170,6 +170,11 @@ namespace Specification.Client
                         Id_TB.Clear();
                         Date_TB.Clear();
                     }
+
+                    if (List_DGV.RowCount >= 1)
+                    {
+                        List_DGV.Rows[List_DGV.Rows.Count - 1].Selected = true;
+                    }
                 }
             }
             catch (Exception ex)
