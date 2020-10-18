@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using BusinessModel;
+using Specification.Client.DataModel;
 
 namespace Specification.Client
 {
@@ -108,10 +110,23 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-                    //INSERT TO DB
-
-
                     Models.Add(model);
+
+                    //INSERT TO DB
+                    //using (ModelContext context = new ModelContext())
+                    //{
+                    //    Model modelDB = new Model
+                    //    {
+                    //        Id = ++Helper.Id,
+                    //        DateCreate = DateTime.Now,
+                    //        Name = modificationModel.Name_TB.Text.Trim(),
+                    //        Description = modificationModel.Description_TB.Text.Trim(),
+                    //    };
+
+                    //    context.Models.Add(modelDB);
+                    //    context.SaveChanges();
+                    //}
+
                 };
             }
             catch(Exception ex)
@@ -210,6 +225,7 @@ namespace Specification.Client
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+            File.WriteAllText(dataFile, string.Empty);
             try
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)

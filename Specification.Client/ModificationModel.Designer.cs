@@ -119,7 +119,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.Controls.Add(this.Header_L, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.Name_L, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Description_L, 0, 2);
@@ -168,7 +168,7 @@
             this.MinimizeBox = false;
             this.Name = "ModificationModel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Добавлене";
+            this.Text = "Добавление";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModificationModel_FormClosing);
             this.Load += new System.EventHandler(this.ModificationModel_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
