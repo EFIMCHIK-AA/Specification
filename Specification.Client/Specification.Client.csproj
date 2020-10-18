@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel\ModelContext.cs" />
+    <Compile Include="Data\ApplicationContext.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -73,6 +73,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Model.cs" />
     <Compile Include="ModificationModel.cs">
       <SubType>Form</SubType>
     </Compile>

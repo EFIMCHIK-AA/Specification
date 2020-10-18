@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
-using BusinessModel;
-using Specification.Client.DataModel;
+using Specification.Client.Data;
+using Specification.Client.Models;
 
 namespace Specification.Client
 {
@@ -14,11 +18,12 @@ namespace Specification.Client
             InitializeComponent();
         }
 
+        private Data.ApplicationContext _context;
         private SortableBindingList<Model> Models;
 
         private void InitializeListOfModels()
         {
-            Models = new SortableBindingList<Model>();
+            Models = new SortableBindingList<Model>(_context.Models.ToList());
 
             List_DGV.DataSource = Models;
 
@@ -31,6 +36,8 @@ namespace Specification.Client
 
         private void Main_Load(object sender, EventArgs e)
         {
+            _context = new Data.ApplicationContext();
+
             InitializeListOfModels();
 
             try 
@@ -102,31 +109,26 @@ namespace Specification.Client
 
                 if (modificationModel.ShowDialog() == DialogResult.OK)
                 {
-                    Model model = new Model
+                    //Model model = new Model
+                    //{
+                    //    Id = ++Helper.Id,
+                    //    DateCreate = DateTime.Now,
+                    //    Name = modificationModel.Name_TB.Text.Trim(),
+                    //    Description = modificationModel.Description_TB.Text.Trim(),
+                    //};
+
+                    //Models.Add(model);
+
+                    Model modelDB = new Model
                     {
-                        Id = ++Helper.Id,
                         DateCreate = DateTime.Now,
                         Name = modificationModel.Name_TB.Text.Trim(),
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-                    Models.Add(model);
-
-                    //INSERT TO DB
-                    //using (ModelContext context = new ModelContext())
-                    //{
-                    //    Model modelDB = new Model
-                    //    {
-                    //        Id = ++Helper.Id,
-                    //        DateCreate = DateTime.Now,
-                    //        Name = modificationModel.Name_TB.Text.Trim(),
-                    //        Description = modificationModel.Description_TB.Text.Trim(),
-                    //    };
-
-                    //    context.Models.Add(modelDB);
-                    //    context.SaveChanges();
-                    //}
-
+                    _context.Models.Add(modelDB);
+                    _context.SaveChanges();
+                    Models.Add(modelDB);
                 };
             }
             catch(Exception ex)
