@@ -36,6 +36,7 @@ namespace Specification.Client
 
         private void Main_Load(object sender, EventArgs e)
         {
+            List_DGV.Rows.Clear();
             _context = new Data.ApplicationContext();
 
             InitializeListOfModels();
@@ -56,7 +57,7 @@ namespace Specification.Client
                             {
                                 break;
                             }
-
+                                
                             Model model = new Model();
 
                             model.Id = Convert.ToInt32(Id);
@@ -163,6 +164,7 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
+
                     Models.Remove(model);
                     Models.Add(updateModel);
                 };
@@ -179,9 +181,10 @@ namespace Specification.Client
             {
                 if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Model model = List_DGV.CurrentRow.DataBoundItem as Model;
+                    Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
+                    //Model model = List_DGV.CurrentRow.DataBoundItem as Model;
 
-                    Models.Remove(model);
+                    Models.Remove(modelDB);
 
                     if (List_DGV.RowCount == 0)
                     {
@@ -227,26 +230,26 @@ namespace Specification.Client
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(dataFile, string.Empty);
+            //File.WriteAllText(dataFile, string.Empty);
             try
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.OpenOrCreate)))
-                    {
-                        for (int i = 0; i < Models.Count; i++)
-                        {
-                            sw.WriteLine(Models[i].Id);
-                            sw.WriteLine(Models[i].Name);
-                            sw.WriteLine(Models[i].Description);
-                            sw.WriteLine(Models[i].DateCreate);
-                        }
-                    }
+                    //using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.OpenOrCreate)))
+                    //{
+                    //    for (int i = 0; i < Models.Count; i++)
+                    //    {
+                    //        sw.WriteLine(Models[i].Id);
+                    //        sw.WriteLine(Models[i].Name);
+                    //        sw.WriteLine(Models[i].Description);
+                    //        sw.WriteLine(Models[i].DateCreate);
+                    //    }
+                    //}
 
-                    using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.OpenOrCreate)))
-                    {
-                        sw.WriteLine(Helper.Id);
-                    }
+                    //using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.OpenOrCreate)))
+                    //{
+                    //    sw.WriteLine(Helper.Id);
+                    //}
                 }
                 else
                 {
