@@ -100,7 +100,6 @@ namespace Specification.Client
                 {
                     Model updateModelDB = new Model
                     {
-                        Id = modelDB.Id,
                         DateCreate = DateTime.Now,
                         Name = modificationModel.Name_TB.Text.Trim(),
                         Description = modificationModel.Description_TB.Text.Trim(),
