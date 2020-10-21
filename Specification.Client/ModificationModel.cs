@@ -62,5 +62,10 @@ namespace Specification.Client
                 }       
             }         
         }
+
+        private void Delete_B_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

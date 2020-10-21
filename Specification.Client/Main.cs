@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Specification.Client.Data;
 using Specification.Client.Models;
@@ -30,9 +32,10 @@ namespace Specification.Client
             List_DGV.Columns["Description"].Visible = false;
             List_DGV.Columns["DateCreate"].Visible = false;
         }
+
         private void Main_Load(object sender, EventArgs e)
         {                      
-            try 
+             try 
             {
                 _context = new Data.ApplicationContext();
 
@@ -71,6 +74,7 @@ namespace Specification.Client
 
                     _context.Models.Add(modelDB);
                     _context.SaveChanges();
+
                     Models.Add(modelDB);
                 };
             }
@@ -90,7 +94,7 @@ namespace Specification.Client
 
                 if(modelDB == null)
                 {
-                    throw new Exception("Необходимо выбрать Объект не выбран");
+                    throw new Exception("Необходимо выбрать объект");
                 }
 
                 modificationModel.Name_TB.Text = modelDB.Name;
@@ -98,18 +102,15 @@ namespace Specification.Client
 
                 if (modificationModel.ShowDialog() == DialogResult.OK)
                 {
-                    Model updateModelDB = new Model
-                    {
-                        DateCreate = DateTime.Now,
-                        Name = modificationModel.Name_TB.Text.Trim(),
-                        Description = modificationModel.Description_TB.Text.Trim(),
-                    };
+                    Model modelContext = _context.Models.FirstOrDefault(m => m.Id == modelDB.Id);
+                    modelContext.Name = modificationModel.Name_TB.Text.Trim();
+                    modelContext.DateCreate = DateTime.Now;
+                    modelContext.Description = modificationModel.Description_TB.Text.Trim();
+
+                    _context.SaveChanges();
 
                     Models.Remove(modelDB);                 
-                    Models.Add(updateModelDB);
-                    _context.Models.Remove(modelDB);
-                    _context.Models.Add(updateModelDB);
-                    _context.SaveChanges();
+                    Models.Add(modelContext);
                 }
             }
             catch (Exception ex)
@@ -126,21 +127,10 @@ namespace Specification.Client
                 {
                     Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
 
-                    Models.Remove(modelDB);
                     _context.Models.Remove(modelDB);
+                    _context.SaveChanges();
 
-                    if (List_DGV.RowCount == 0)
-                    {
-                        Name_TB.Clear();
-                        Description_TB.Clear();
-                        Id_TB.Clear();
-                        Date_TB.Clear();
-                    }
-
-                    if (List_DGV.RowCount >= 1)
-                    {
-                        List_DGV.Rows[List_DGV.Rows.Count - 1].Selected = true;
-                    }
+                    Models.Remove(modelDB);
                 }
             }
             catch (Exception ex)
@@ -168,6 +158,11 @@ namespace Specification.Client
             else
             {
                 StateButton(false);
+
+                Name_TB.Clear();
+                Description_TB.Clear();
+                Id_TB.Clear();
+                Date_TB.Clear();
             }
         }
 
