@@ -30,61 +30,13 @@ namespace Specification.Client
             List_DGV.Columns["Description"].Visible = false;
             List_DGV.Columns["DateCreate"].Visible = false;
         }
-
-        String dataFile = "data.text";
-        String confFile = "id.text";
-
         private void Main_Load(object sender, EventArgs e)
-        {
-            List_DGV.Rows.Clear();
-            _context = new Data.ApplicationContext();
-
-            InitializeListOfModels();
-
+        {                      
             try 
             {
-                if (File.Exists(dataFile))
-                {
-                    using (StreamReader sr = new StreamReader(File.Open(dataFile, FileMode.Open)))
-                    {
-                        String Id = null;
+                _context = new Data.ApplicationContext();
 
-                        while (true)
-                        {
-                            Id = sr.ReadLine();
-
-                            if (Id == null)
-                            {
-                                break;
-                            }
-                                
-                            Model model = new Model();
-
-                            model.Id = Convert.ToInt32(Id);
-                            model.Name = sr.ReadLine();
-                            model.Description = sr.ReadLine();
-                            model.DateCreate = Convert.ToDateTime(sr.ReadLine());
-
-                            Models.Add(model);
-                        }
-                    }
-                }
-                else
-                {
-                    File.Create(dataFile);
-                }
-
-                if (File.Exists(confFile))
-                {
-                    using (StreamReader sr = new StreamReader(File.Open(confFile, FileMode.Open)))
-                    {
-                        Helper.Id = Convert.ToInt32(sr.ReadLine());
-                    }
-                }
-                else
-                {
-                    File.Create(confFile);
-                }
+                InitializeListOfModels();
 
                 if (List_DGV.Rows.Count > 0)
                 {
@@ -109,17 +61,7 @@ namespace Specification.Client
                 ModificationModel modificationModel = new ModificationModel(false);
 
                 if (modificationModel.ShowDialog() == DialogResult.OK)
-                {
-                    //Model model = new Model
-                    //{
-                    //    Id = ++Helper.Id,
-                    //    DateCreate = DateTime.Now,
-                    //    Name = modificationModel.Name_TB.Text.Trim(),
-                    //    Description = modificationModel.Description_TB.Text.Trim(),
-                    //};
-
-                    //Models.Add(model);
-
+                {                   
                     Model modelDB = new Model
                     {
                         DateCreate = DateTime.Now,
@@ -144,29 +86,28 @@ namespace Specification.Client
             {
                 ModificationModel modificationModel = new ModificationModel(true);
 
-                Model model = List_DGV.CurrentRow.DataBoundItem as Model;
+                Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
 
-                if(model == null)
+                if(modelDB == null)
                 {
                     throw new Exception("Необходимо выбрать Объект не выбран");
                 }
 
-                modificationModel.Name_TB.Text = model.Name;
-                modificationModel.Description_TB.Text = model.Description;
+                modificationModel.Name_TB.Text = modelDB.Name;
+                modificationModel.Description_TB.Text = modelDB.Description;
 
                 if (modificationModel.ShowDialog() == DialogResult.OK)
                 {
-                    Model updateModel = new Model
+                    Model updateModelDB = new Model
                     {
-                        Id = model.Id,
+                        Id = modelDB.Id,
                         DateCreate = DateTime.Now,
                         Name = modificationModel.Name_TB.Text.Trim(),
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-
-                    Models.Remove(model);
-                    Models.Add(updateModel);
+                    Models.Remove(modelDB);
+                    Models.Add(updateModelDB);
                 };
             }
             catch (Exception ex)
@@ -182,8 +123,7 @@ namespace Specification.Client
                 if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
-                    //Model model = List_DGV.CurrentRow.DataBoundItem as Model;
-
+                    
                     Models.Remove(modelDB);
 
                     if (List_DGV.RowCount == 0)
@@ -210,14 +150,14 @@ namespace Specification.Client
         {
             if (List_DGV.CurrentCell != null)
             {
-                Model model = List_DGV.CurrentRow.DataBoundItem as Model;
+                Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
 
-                if (model != null)
+                if (modelDB != null)
                 {
-                    Id_TB.Text = model.Id.ToString();
-                    Name_TB.Text = model.Name;
-                    Description_TB.Text = model.Description;
-                    Date_TB.Text = model.DateCreate.ToString();
+                    Id_TB.Text = modelDB.Id.ToString();
+                    Name_TB.Text = modelDB.Name;
+                    Description_TB.Text = modelDB.Description;
+                    Date_TB.Text = modelDB.DateCreate.ToString();
                 }
 
                 StateButton(true);
@@ -230,26 +170,11 @@ namespace Specification.Client
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //File.WriteAllText(dataFile, string.Empty);
             try
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    //using (StreamWriter sw = new StreamWriter(File.Open(dataFile, FileMode.OpenOrCreate)))
-                    //{
-                    //    for (int i = 0; i < Models.Count; i++)
-                    //    {
-                    //        sw.WriteLine(Models[i].Id);
-                    //        sw.WriteLine(Models[i].Name);
-                    //        sw.WriteLine(Models[i].Description);
-                    //        sw.WriteLine(Models[i].DateCreate);
-                    //    }
-                    //}
-
-                    //using (StreamWriter sw = new StreamWriter(File.Open(confFile, FileMode.OpenOrCreate)))
-                    //{
-                    //    sw.WriteLine(Helper.Id);
-                    //}
+                   
                 }
                 else
                 {
