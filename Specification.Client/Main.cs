@@ -61,7 +61,7 @@ namespace Specification.Client
                 ModificationModel modificationModel = new ModificationModel(false);
 
                 if (modificationModel.ShowDialog() == DialogResult.OK)
-                {                   
+                {
                     Model modelDB = new Model
                     {
                         DateCreate = DateTime.Now,
@@ -110,7 +110,8 @@ namespace Specification.Client
                     Models.Add(updateModelDB);
                     _context.Models.Remove(modelDB);
                     _context.Models.Add(updateModelDB);
-                };
+                    _context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
