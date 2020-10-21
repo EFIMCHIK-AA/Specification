@@ -106,8 +106,10 @@ namespace Specification.Client
                         Description = modificationModel.Description_TB.Text.Trim(),
                     };
 
-                    Models.Remove(modelDB);
+                    Models.Remove(modelDB);                 
                     Models.Add(updateModelDB);
+                    _context.Models.Remove(modelDB);
+                    _context.Models.Add(updateModelDB);
                 };
             }
             catch (Exception ex)
@@ -123,8 +125,9 @@ namespace Specification.Client
                 if (MessageBox.Show("Вы действительно хотите удалить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     Model modelDB = List_DGV.CurrentRow.DataBoundItem as Model;
-                    
+
                     Models.Remove(modelDB);
+                    _context.Models.Remove(modelDB);
 
                     if (List_DGV.RowCount == 0)
                     {
@@ -174,7 +177,7 @@ namespace Specification.Client
             {
                 if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                   
+                    _context.SaveChanges();
                 }
                 else
                 {
@@ -199,4 +202,3 @@ namespace Specification.Client
         }
     }
 }
-
