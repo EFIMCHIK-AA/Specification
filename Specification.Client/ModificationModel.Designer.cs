@@ -170,7 +170,6 @@
             this.Delete_B.TabIndex = 14;
             this.Delete_B.Text = "&Удалить";
             this.Delete_B.UseVisualStyleBackColor = false;
-            this.Delete_B.Click += new System.EventHandler(this.Delete_B_Click);
             // 
             // ModificationModel
             // 
