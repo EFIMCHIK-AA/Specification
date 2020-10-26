@@ -9,7 +9,7 @@ using Specification.Client.Models;
 
 namespace Specification.Client
 {
-    public class ModelConroller
+    public class ModelConroller 
     {
         private ApplicationContext _context;
 
@@ -26,7 +26,7 @@ namespace Specification.Client
             }
         }
 
-        public (Model, Boolean) Add(Model model)
+        public (Model, bool) Add(Model model)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace Specification.Client
             }
         }
 
-        public (Model, Boolean) Update(Model model)
+        public (Model, bool) Update(Model model)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace Specification.Client
             }     
         }
 
-        public (int, Boolean) Remove(int Id)
+        public (int, bool) Delete(int Id)
         {
             try
             {

@@ -36,7 +36,7 @@ namespace Specification.Client
         private void Main_Load(object sender, EventArgs e)
         {                      
              try 
-            {
+             {
                 _context = new Data.ApplicationContext();
 
                 InitializeListOfModels();
@@ -49,12 +49,12 @@ namespace Specification.Client
                 {
                     StateButton(false);
                 }
-            }
+             }
             catch (Exception ex)
-            {
+             {
                 MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Application.Exit();
-            }      
+             }      
         }   
 
         private void Add_B_Click(object sender, EventArgs e)
